@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Médico por Nome | AVA medical group</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: "Inter", sans-serif;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+        .input-focus:focus {
+            border-color: #2563eb !important;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+            outline: none;
+        }
+        /* Dark mode */
+        body.dark {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        body.dark .bg-white {
+            background-color: #2d3748;
+            color: #e2e8f0;
+        }
+        body.dark input {
+            background-color: #4a5568;
+            color: #edf2f7;
+            border-color: #718096;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    <!-- Cabeçalho -->
+    <header class="w-full bg-blue-600 text-white flex flex-col items-center p-4 shadow-md relative">
+        <img src="https://cdn-icons-png.flaticon.com/512/2966/2966327.png" 
+             alt="Logo da Clínica" 
+             class="w-16 h-16 mb-2">
+
+        <h1 class="text-lg font-bold text-yellow-300">Consultar Médico por Nome</h1>
+
+        <div class="absolute top-4 right-4 flex items-center gap-4">
+            <button id="darkToggle" class="text-white text-xl focus:outline-none">
+                🌙
+            </button>
+            <a href="pagina inicial e menu.html" 
+               class="text-red-400 text-2xl font-bold hover:text-red-600">✕</a>
+        </div>
+    </header>
+
+    <!-- Formulário -->
+    <main class="flex-grow flex items-center justify-center p-4">
+        <div class="bg-white p-8 md:p-10 rounded-2xl shadow-lg w-full max-w-lg">
+
+            <form action="consultar medicos.php" method="POST" class="space-y-6">
+                <div>
+                    <label for="nome_medico" class="block text-sm font-semibold mb-2">Digite o nome do médico</label>
+                    <input 
+                        type="text" 
+                        id="nome_medico" 
+                        name="nome_medico" 
+                        required
+                        placeholder="Ex: João Silva"
+                        class="input-focus w-full p-3 border border-gray-300 rounded-lg bg-white"
+                    >
+                </div>
+
+                <!-- Botão -->
+                <button
+                    type="submit"
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg text-lg transition-all shadow-md hover:scale-[1.01]"
+                >
+                    Buscar Médico
+                </button>
+            </form>
+
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="w-full bg-blue-600 text-white text-center p-4 mt-6">
+        <a href="https://www.instagram.com/nicolashenrique9338?igsh=bWZsbmI0b3piMmVt" target="_blank" class="inline-block">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" 
+                 alt="Instagram" 
+                 class="w-8 h-8 mx-auto hover:opacity-80 transition">
+        </a>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('darkToggle');
+        toggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            toggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        });
+    </script>
+
+</body>
+</html>
+
